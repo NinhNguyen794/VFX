@@ -1,0 +1,461 @@
+<!-- Header Component - Optimized -->
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="/assets/images/index/logoVFX.png" alt="VFX Logo">
+                <div class="logo-text">
+                    <h1>VFX</h1>
+                    <p>Sàn Gọi Vốn Việt Nam</p>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="index-link" href="/"><i class="fas fa-home"></i> Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="about-link" href="about.html"><i class="fas fa-users"></i> Đội Ngũ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="news-link" href="News.html"><i class="fas fa-newspaper"></i> Tin Tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="Contact-link" href="Contact.html"><i class="fas fa-envelope"></i> Liên Hệ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="cartDropdown">
+                            <li><a class="dropdown-item" href="#">Cloud Services</a></li>
+                            <li><a class="dropdown-item" href="#">Software Services</a></li>
+                            <li><a class="dropdown-item" href="#">Data Services</a></li>
+                            <li><a class="dropdown-item" href="#">Infrastructure</a></li>
+                            <li><a class="dropdown-item" href="#">Collaboration</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="dropdown ms-lg-3">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        🌐 Ngôn ngữ
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#" onclick="event.preventDefault(); switchLanguage('vi')">
+                                <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag" width="20" class="me-2">
+                                    Tiếng Việt
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#" onclick="event.preventDefault(); switchLanguage('en')">
+                                <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" width="20" class="me-2">
+                                    English
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+                
+<style>
+    /* ===== BASE HEADER STYLES ===== */
+    .navbar {
+        background-color: white;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        transition: padding 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* ===== BRAND AND LOGO ===== */
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-brand img {
+        height: 60px;
+        width: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+        transform: scale(1.05);
+    }
+
+    .logo-text {
+        margin-left: 16px;
+        border-left: 2px solid #f5b53f;
+        padding-left: 16px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #f5b53f;
+        margin: 0;
+        line-height: 1.2;
+        letter-spacing: 0.5px;
+    }
+
+    .logo-text p {
+        font-size: 0.9rem;
+        color: #f5b53f;
+        margin: 0;
+        letter-spacing: 0.3px;
+    }
+
+    /* ===== NAVIGATION ITEMS ===== */
+    .navbar-nav {
+        margin: 0 auto;
+    }
+    
+    .navbar-nav .nav-item {
+        margin-right: 25px;
+    }
+
+    .navbar-nav .nav-link {
+        color: black;
+        font-weight: 500;
+        padding: 12px 24px;
+        border-radius: 30px;
+        transition: all 0.3s;
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link i {
+        margin-right: 8px;
+        font-size: 1rem;
+    }
+
+    /* Nav link animations */
+    .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 1px;
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        transition: width 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Active link style */
+    .navbar-nav .nav-link.active {
+        font-weight: bold;
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-nav .nav-link.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+    }
+
+    /* ===== ACCOUNT BUTTON ===== */
+    .account-button {
+        background-color: transparent;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: 1.5px solid #f5b53f;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.3px;
+        font-size: 0.9rem;
+    }
+
+    .account-button:hover {
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(245, 181, 63, 0.2);
+    }
+
+    .account-button i {
+        margin-right: 8px;
+        font-size: 1rem;
+    }
+
+    /* ===== DROPDOWN MENU ===== */
+    .navbar-nav .dropdown .nav-link {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Remove default dropdown arrow */
+    .navbar-nav .dropdown .dropdown-toggle::after {
+        display: none;
+    }
+    
+    .dropdown-menu {
+        min-width: 220px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        border: none;
+        padding: 16px 0;
+        margin-top: 12px !important;
+        background: #fff;
+    }
+
+    .dropdown-menu .dropdown-item {
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: #222;
+        padding: 12px 28px;
+        border-radius: 8px;
+        transition: all 0.3s;
+        position: relative;
+        background: transparent;
+    }
+    
+    .dropdown-menu .dropdown-item::after {
+        content: "";
+        position: absolute;
+        left: 28px;
+        bottom: 8px;
+        width: 0%;
+        height: 1px;
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        transition: width 0.3s ease;
+    }
+    
+    .dropdown-menu .dropdown-item:hover {
+        background: transparent;
+        background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .dropdown-menu .dropdown-item:hover::after {
+        width: calc(80% - 56px);
+    }
+
+    /* Show dropdown on hover for desktop */
+    @media (min-width: 992px) {
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    }
+
+    /* ===== RESPONSIVE STYLES ===== */
+    /* Large screens (992px - 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .navbar-nav .nav-link {
+            padding: 10px 16px;
+            font-size: 0.9rem;
+        }
+        
+        .navbar-nav .nav-item {
+            margin-right: 10px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.1rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+        }
+    }
+
+    /* Tablet (768px - 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+        /* Logo adjustments */
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .logo-text {
+            display: block !important;
+            margin-left: 10px;
+            padding-left: 10px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.7rem;
+        }
+        
+        /* Toggle button */
+        .navbar-toggler {
+            padding: 8px 12px;
+            margin-left: 10px;
+            border: 1px solid #f5b53f;
+        }
+        
+        /* Layout adjustments */
+        .container-fluid {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .navbar-brand {
+            max-width: 75%;
+            flex-wrap: nowrap;
+        }
+        
+        /* Menu when expanded */
+        .navbar-collapse {
+            margin-top: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Account button */
+        .account-button {
+            margin: 15px auto 5px;
+            width: fit-content;
+            justify-content: center;
+        }
+        
+        /* Nav items */
+        .navbar-nav .nav-item {
+            margin-bottom: 8px;
+            margin-right: 0;
+        }
+    }
+
+    /* Mobile (up to 767px) */
+    @media (max-width: 767px) {
+        .logo-text {
+            display: none;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+        }
+        
+        .navbar-toggler {
+            padding: 6px 10px;
+            border: 1px solid #f5b53f;
+        }
+        
+        .navbar-collapse {
+            margin-top: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-nav .nav-item {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+        
+        .navbar-nav .nav-link {
+            font-size: 1rem;
+            padding: 8px 16px;
+        }
+        
+        .account-button {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            margin: 10px auto 5px;
+            width: fit-content;
+        }
+    }
+
+    /* Common mobile & tablet styles */
+    @media (max-width: 991px) {
+        /* Dropdown styling for collapsed menu */
+        .dropdown-menu {
+            border: none;
+            box-shadow: none;
+            padding: 0 0 0 20px;
+            margin-top: 0 !important;
+            background: transparent;
+        }
+        
+        .dropdown-item {
+            padding: 8px 15px;
+            font-size: 0.95rem;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set active link based on current page - improved to handle query params
+    const currentPath = window.location.pathname.split('/').pop().split('?')[0].toLowerCase();
+    
+    // Remove all active classes first
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add active class based on current page
+    if (currentPath === '' || currentPath === 'index.html' || currentPath === '/') {
+        document.getElementById('index-link')?.classList.add('active');
+    } else if (currentPath === 'about.html') {
+        document.getElementById('about-link')?.classList.add('active');
+    } else if (currentPath === 'news.html') {
+        document.getElementById('news-link')?.classList.add('active');
+    } else if (currentPath === 'contact.html') {
+        document.getElementById('Contact-link')?.classList.add('active');
+    }
+    
+    // Shrink header on scroll - with optimization
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', function() {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Only update classes if scroll direction or threshold changed
+        if (st > 50 && !navbar.classList.contains('py-2')) {
+            navbar.classList.add('py-2');
+            navbar.classList.remove('py-3');
+            navbar.classList.add('shadow');
+        } else if (st <= 50 && !navbar.classList.contains('py-3')) {
+            navbar.classList.add('py-3');
+            navbar.classList.remove('py-2');
+            navbar.classList.remove('shadow');
+        }
+        
+        lastScrollTop = st <= 0 ? 0 : st;
+    }, {passive: true}); // Using passive listener for better performance
+});
+</script>

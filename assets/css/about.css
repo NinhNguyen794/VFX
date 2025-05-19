@@ -1,0 +1,284 @@
+* {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Header */
+        /* CSS tùy chỉnh cho header Bootstrap */
+        .navbar {
+            /* background: linear-gradient(to right, #e6f3eb, #ffffff); */
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            margin: 0;
+            padding: 10px 0; /* Tăng padding trên/dưới để navbar cao hơn */
+        }
+
+        .navbar-brand img {
+            height: 60px; /* Tăng kích thước logo */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            margin-left: 16px; /* Tăng khoảng cách giữa logo và chữ */
+            border-left: 2px solid #f5b53f;
+            padding-left: 16px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem; /* Tăng kích thước chữ tiêu đề */
+            font-weight: 700;
+            color: #f5b53f;
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem; /* Tăng kích thước chữ phụ */
+            color: #f5b53f;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 25px; /* Tăng khoảng cách giữa các mục menu */
+        }
+
+        .navbar-nav .nav-link {
+            color: black;
+            font-weight: 500;
+            padding: 12px 24px; /* Tăng padding để mục menu lớn hơn */
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-size: 1.0rem; /* Tăng kích thước chữ của menu */
+            letter-spacing: 0.3px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: black;
+            background-color: rgba(245, 181, 63, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: black;
+            /* background-color: #f5b53f; */
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            font-weight: 600;
+        }
+
+        .account-button {
+            background-color: transparent;
+            color: black;
+            padding: 10px 20px; /* Tăng padding để nút lớn hơn */
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1.5px solid #f5b53f;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.3px;
+            font-size: 0.9rem; /* Tăng kích thước chữ của nút */
+        }
+
+        .account-button:hover {
+            /* background-color: #f5b53f; */
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 181, 63, 0.2);
+        }
+
+        .account-button i {
+            margin-right: 8px;
+            font-size: 1rem; /* Tăng kích thước icon */
+        }
+
+        @media (max-width: 991px) {
+            .logo-text {
+                display: none;
+            }
+
+            .navbar-nav .nav-item {
+                margin-right: 0;
+                margin-bottom: 12px; /* Tăng khoảng cách dọc ở chế độ mobile */
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem; /* Giảm nhẹ kích thước chữ ở mobile */
+                padding: 10px 20px;
+            }
+
+            .account-button {
+                font-size: 0.9rem; /* Giảm nhẹ kích thước chữ ở mobile */
+                padding: 8px 16px;
+            }
+        }
+
+        /* Founding Team Section - New Design */
+        .founding-team {
+            padding: 80px 0;
+            /* background-color: #f9f9f9; */
+            /* background-color: #027A5614; */
+            background: linear-gradient(to right, rgba(244, 213, 80, 0.1), rgba(178, 120, 13, 0.1));
+            position: relative;
+        }
+
+        .greeting1 {
+            display: block;
+            width: fit-content;
+            padding: 8px 25px;
+            border: none;
+            border-radius: 30px;
+            margin: 0 auto 20px;
+            font-size: 1rem;
+            color: white;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(242, 201, 76, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .founding-team h2{
+            font-weight: bold;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member-card {
+            background: linear-gradient(to bottom, #f0fff4, #ffffff);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-title {
+            color: #000;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .team-member-description {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .member-image-container {
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .member-name {
+            color: var(--dark-green);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .member-position {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .member-description {
+            color: #444;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #F2C94C;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #E0B83C;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 991px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-name {
+                font-size: 1.3rem;
+            }
+        }

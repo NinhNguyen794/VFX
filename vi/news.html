@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức - Sàn Gọi Vốn Việt Nam - VFX</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="/assets/images/index/logoVFX.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/news.css">
+    <script src="/assets/js/vi/news.js" defer></script>
+</head>
+<body>
+    <!-- Header Component Include -->
+    <div id="header-placeholder"></div>
+
+    <!-- News Header Section -->
+    <section class="news-header">
+        <div class="container">
+            <div class="greeting1">Cập Nhật Thông Tin</div>
+            <h1>Tin Tức & Sự Kiện</h1>
+            <p>Cập nhật các tin tức mới nhất về thị trường tài chính, các sự kiện gọi vốn và các hoạt động nổi bật của VFX.</p>
+        </div>
+    </section>
+
+    <!-- News Content Section -->
+    <section class="news-content py-5">
+        <div class="container">
+            <!-- Featured News -->
+            <div class="featured-news mb-5" id="featured-news mb-5">
+                
+            </div>
+
+            <!-- News Categories -->
+            <div class="news-categories mb-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title">Danh Mục Tin Tức</h2>
+                    <div class="categories-filter">
+                        <button class="cat-btn active" data-filter="All">Tất cả</button>
+                        <button class="cat-btn" data-filter="Sự Kiện">Sự kiện</button>
+                        <button class="cat-btn" data-filter="Tài Chính">Tài chính</button>
+                        <button class="cat-btn" data-filter="Startup">Startup</button>
+                        <button class="cat-btn" data-filter="Nhà Đầu Tư">Nhà đầu tư</button>
+                    </div>
+                </div>
+                <div class="row g-4" id="news_categories_mb_5">
+
+                </div>
+                
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-5">
+                <nav aria-label="News pagination">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer Component Include -->
+<div id="footer-container"></div>
+
+<!-- Bootstrap JS, Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<script>
+    async function featured_news_mb_5() {
+    try {
+        const response = await fetch("http://127.0.0.1:8000/news/products_1");
+        if (!response.ok){
+            throw new Error('Không thể tải danh sách sản phẩm');
+        }
+            const data = await response.json();
+            const productsContainer = document.getElementById("featured-news mb-5");
+            productsContainer.innerHTML = '';
+
+            const p1 = data.products[0];
+            const p2 = data.products[1];
+            const p3 = data.products[2];
+
+            const productCard = `
+            <div class="row">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <div class="card featured-card h-100">
+                            <div class="position-relative overflow-hidden featured-img-container">
+                                <a href="News_item.html">
+                                <img src="${p1.image_url}" class="card-img-top featured-img" alt="${p1.name}"></img>
+                                </a>
+                                <div class="featured-overlay">
+                                    <span class="featured-category">Sự Kiện</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="news-date"><i class="far fa-calendar-alt me-2"></i>${p1.created_at}</span>
+                                    <span class="mx-2">•</span>
+                                    <span class="news-author"><i class="far fa-user me-2"></i>VFX Team</span>
+                                </div>
+                                <a href="https://forms.gle/d1F5uCPxpEbPA8hq7" style="text-decoration: none;">
+                                <h3 class="card-title">${p1.name}</h3>
+                                </a>
+                                <p class="card-text">${p1.content.substring(0, 100)}${p1.content.length > 100 ? '...' : ''}</p>
+                                <a href="News_item.html" class="btn-read-more">Đọc tiếp <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card h-100 side-card">
+                                    <div class="position-relative overflow-hidden side-img-container">
+                                        <img src="${p2.image_url}" class="card-img-top side-img" alt="${p2.name}"></img>
+                                        <div class="side-overlay">
+                                            <span class="side-category">Tài Chính</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="news-date small"><i class="far fa-calendar-alt me-1"></i>${p2.created_at}</span>
+                                        </div>
+                                        <h5 class="card-title">${p2.name}</h5>
+                                        <a href="#" class="btn-read-more-sm">Đọc tiếp</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card h-100 side-card">
+                                    <div class="position-relative overflow-hidden side-img-container">
+                                        <img src="${p3.image_url}" class="card-img-top side-img" alt="${p3.name}"></img>
+                                        <div class="side-overlay">
+                                            <span class="side-category">Startup</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="news-date small"><i class="far fa-calendar-alt me-1"></i>${p3.created_at}</span>
+                                        </div>
+                                        <h5 class="card-title">${p3.name}</h5>
+                                        <a href="#" class="btn-read-more-sm">Đọc tiếp</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+            productsContainer.innerHTML += productCard;
+        } catch (err) {
+        console.error("Lỗi khi tải danh sách sản phẩm:", err);
+        document.getElementById("products-container").innerHTML = 
+            '<div class="text-danger">Không thể tải nội dung nổi bật</div>';
+    }
+}
+
+    document.addEventListener('DOMContentLoaded', featured_news_mb_5);
+
+    // tat ca san pham
+    
+//     async function news_categories_mb_5() {
+//     try {
+//         const response = await fetch("http://127.0.0.1:8000/news/products_2");
+//         if (!response.ok) {
+//             throw new Error("Không thể tải danh sách sản phẩm");
+//         }
+
+//         const data = await response.json();
+//         const products = data.products;
+
+//         const container = document.getElementById("news_categories_mb_5");
+//         container.innerHTML = '';
+
+//         if (products.length === 0) {
+//             container.innerHTML = '<div class="text-muted">Chưa có sản phẩm nào.</div>';
+//             return;
+//         }
+
+//         const cards = products.map(p => `
+//             <div class="col-md-6 col-lg-4 news-item" data-category="${p.category}">
+//                 <div class="card h-100">
+//                     <div class="position-relative overflow-hidden">
+//                         <img src="${p.image_url}" class="card-img-top news-img" alt="Hình ảnh sản phẩm">
+//                         <div class="news-overlay">
+//                             <span class="news-category">${p.category}</span>
+//                         </div>
+//                     </div>
+//                     <div class="card-body">
+//                         <div class="d-flex align-items-center mb-2">
+//                             <span class="news-date small"><i class="far fa-calendar-alt me-1"></i>${p.created_at}</span>
+//                         </div>
+//                         <h5 class="card-title">${p.name}</h5>
+//                         <p class="card-text">${p.content.substring(0, 200)}${p.content.length > 200 ? '...' : ''}</p>
+//                         <a href="#" class="btn-read-more-sm">Đọc tiếp</a>
+//                     </div>
+//                 </div>
+//             </div>
+//         `).join('');
+
+//         container.innerHTML = `<div class="row g-4">${cards}</div>`;
+//     } catch (err) {
+//         console.error("Lỗi khi tải danh sách sản phẩm:", err);
+//         document.getElementById("news-categories-mb5").innerHTML = 
+//             '<div class="text-danger">Không thể tải nội dung nổi bật</div>';
+//     }
+// }
+
+// document.addEventListener('DOMContentLoaded', news_categories_mb_5);
+
+// document.querySelectorAll('.cat-btn').forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         const category = btn.getAttribute('data-filter');
+//         news_categories_mb_5(category);
+//     });
+// });
+
+// function news_categories_mb_5(category = "All") {
+//     let url = "http://127.0.0.1:8000/news/products_3";
+//     if (category && category !== "All") {
+//         url += `?category=${encodeURIComponent(category)}`;
+//     }
+
+//     fetch(url)
+//         .then(response => {
+//             if (!response.ok) throw new Error("Không thể tải danh sách sản phẩm");
+//             return response.json();
+//         })
+//         .then(data => {
+//             const container = document.getElementById("news_categories_mb_5");
+//             container.innerHTML = '';
+
+//             if (data.products.length === 0) {
+//                 container.innerHTML = '<div class="text-muted">Chưa có sản phẩm nào.</div>';
+//                 return;
+//             }
+
+//             const cards = data.products.map(p => `
+//                 <div class="col-md-6 col-lg-4 news-item" data-category="${p.category}">
+//                     <div class="card h-100">
+//                         <div class="position-relative overflow-hidden">
+//                             <img src="${p.image_url}" class="card-img-top news-img" alt="Hình ảnh sản phẩm">
+//                             <div class="news-overlay">
+//                                 <span class="news-category">${p.category}</span>
+//                             </div>
+//                         </div>
+//                         <div class="card-body">
+//                             <div class="d-flex align-items-center mb-2">
+//                                 <span class="news-date small"><i class="far fa-calendar-alt me-1"></i>${p.created_at}</span>
+//                             </div>
+//                             <h5 class="card-title">${p.name}</h5>
+//                             <p class="card-text">${p.content.substring(0, 200)}${p.content.length > 200 ? '...' : ''}</p>
+//                             <a href="#" class="btn-read-more-sm">Đọc tiếp</a>
+//                         </div>
+//                     </div>
+//                 </div>
+//             `).join('');
+
+//             container.innerHTML = `<div class="row g-4">${cards}</div>`;
+//         })
+//         .catch(err => {
+//             console.error("Lỗi khi tải danh sách sản phẩm:", err);
+//             document.getElementById("news_categories_mb_5").innerHTML = 
+//                 '<div class="text-danger">Không thể tải nội dung nổi bật</div>';
+//         });
+// }
+
+//         // Load mặc định lúc trang load
+//         news_categories_mb_5("All");
+
+
+    </script>
+
+</body>
+</html> 
+

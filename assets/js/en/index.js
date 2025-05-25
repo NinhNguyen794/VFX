@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const loadingMessage = addMessage('Đang xử lý...', 'loading');
                 
                 // Send message to API
-                const res = await fetch("https://3e3b-14-224-167-99.ngrok-free.app/VFX", {
+                const res = await fetch("https://ef4c-14-224-167-99.ngrok-free.app/VFX_en", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add initial bot message
     setTimeout(() => {
-        addMessage("VFX SÀN GỌI VỐN VIỆT NAM XIN CHÀO. CHÚNG TÔI CÓ THỂ GIÚP GÌ CHO BẠN?", 'received');
+        addMessage("VFX - VIETNAM FUNDRAISING EXCHANGE. How can I help you?", 'received');
     }, 500);
 });
 

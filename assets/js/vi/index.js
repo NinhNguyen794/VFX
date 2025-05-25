@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const loadingMessage = addMessage('Đang xử lý...', 'loading');
                 
                 // Send message to API
-                const res = await fetch("https://3e3b-14-224-167-99.ngrok-free.app/VFX", {
+                const res = await fetch("https://ef4c-14-224-167-99.ngrok-free.app/VFX", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

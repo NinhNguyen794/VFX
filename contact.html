@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Sàn Gọi Vốn Việt Nam - VFX</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./components/footer.html">
+    <link rel="icon" href="./img/index/logoVFX.png" type="image/x-icon">
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Header */
+        /* CSS tùy chỉnh cho header Bootstrap */
+        .navbar {
+            /* background: linear-gradient(to right, #e6f3eb, #ffffff); */
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            margin: 0;
+            padding: 10px 0; /* Tăng padding trên/dưới để navbar cao hơn */
+        }
+
+        .navbar-brand img {
+            height: 60px; /* Tăng kích thước logo */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            margin-left: 16px; /* Tăng khoảng cách giữa logo và chữ */
+            border-left: 2px solid #f5b53f;
+            padding-left: 16px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem; /* Tăng kích thước chữ tiêu đề */
+            font-weight: 700;
+            color: #f5b53f;
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem; /* Tăng kích thước chữ phụ */
+            color: #f5b53f;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 25px; /* Tăng khoảng cách giữa các mục menu */
+        }
+
+        .navbar-nav .nav-link {
+            color: black;
+            font-weight: 500;
+            padding: 12px 24px; /* Tăng padding để mục menu lớn hơn */
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-size: 1.0rem; /* Tăng kích thước chữ của menu */
+            letter-spacing: 0.3px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: black;
+            background-color: rgba(245, 181, 63, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: black;
+            /* background-color: #f5b53f; */
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            font-weight: 600;
+        }
+
+        .account-button {
+            background-color: transparent;
+            color: black;
+            padding: 10px 20px; /* Tăng padding để nút lớn hơn */
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1.5px solid #f5b53f;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.3px;
+            font-size: 0.9rem; /* Tăng kích thước chữ của nút */
+        }
+
+        .account-button:hover {
+            /* background-color: #f5b53f; */
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 181, 63, 0.2);
+        }
+
+        .account-button i {
+            margin-right: 8px;
+            font-size: 1rem; /* Tăng kích thước icon */
+        }
+
+        @media (max-width: 991px) {
+            .logo-text {
+                display: none;
+            }
+
+            .navbar-nav .nav-item {
+                margin-right: 0;
+                margin-bottom: 12px; /* Tăng khoảng cách dọc ở chế độ mobile */
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem; /* Giảm nhẹ kích thước chữ ở mobile */
+                padding: 10px 20px;
+            }
+
+            .account-button {
+                font-size: 0.9rem; /* Giảm nhẹ kích thước chữ ở mobile */
+                padding: 8px 16px;
+            }
+        }
+
+        /* Contact Page Styles */
+        .contact-header {
+            background: linear-gradient(to right, rgba(244, 213, 80, 0.1), rgba(178, 120, 13, 0.1));
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/index/pattern.png');
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .contact-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .greeting1 {
+            display: block;
+            width: fit-content;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 30px;
+            margin: 0 auto 25px;
+            font-size: 1.1rem;
+            color: white;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(242, 201, 76, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .greeting1::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        .contact-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            border-radius: 3px;
+        }
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-info-section {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(244, 213, 80, 0.15), rgba(244, 213, 80, 0.05) 60%, transparent);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .contact-info-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(178, 120, 13, 0.15), rgba(178, 120, 13, 0.05) 60%, transparent);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .contact-info-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
+            height: 100%;
+            border: 1px solid rgba(244, 213, 80, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(244, 213, 80, 0.05), rgba(178, 120, 13, 0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(244, 213, 80, 0.3);
+        }
+
+        .contact-info-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-icon-container {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 20px rgba(245, 181, 63, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+            
+        }
+
+        .contact-info-card:hover .contact-icon-container {
+            transform: scale(1.1);
+        }
+
+        .contact-icon-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px dashed rgba(244, 213, 80, 0.5);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .contact-icon1 {
+            font-size: 30px;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-info-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+        }
+
+        .contact-info-card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .contact-info-card a {
+            color: #b27809;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .contact-info-card a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #f5b53f;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-card a:hover {
+            color: #f5b53f;
+        }
+
+        .contact-info-card a:hover::after {
+            width: 100%;
+        }
+
+        .map-section {
+            padding: 0 0 80px;
+            margin-top: 50px;
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-section {
+            padding: 100px 0;
+            background: linear-gradient(to right, rgba(244, 213, 80, 0.07), rgba(178, 120, 13, 0.07));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(244, 213, 80, 0.2), rgba(244, 213, 80, 0.1) 30%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-form-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(178, 120, 13, 0.15), rgba(178, 120, 13, 0.05) 50%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(244, 213, 80, 0.1);
+            overflow: hidden;
+        }
+
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(244, 213, 80, 0.1), rgba(178, 120, 13, 0.1));
+            border-radius: 0 0 0 100%;
+            z-index: -1;
+        }
+
+        .contact-form-container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #333;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-form-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            border-radius: 3px;
+        }
+
+        .form-control {
+            padding: 15px 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        .form-control:focus {
+            border-color: #f5b53f;
+            box-shadow: 0 0 0 4px rgba(245, 181, 63, 0.1);
+            background-color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-group .icon {
+            position: absolute;
+            top: 35%;
+            transform: translateY(-50%);
+            left: 15px;
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .input-group .form-control {
+            padding-left: 45px;
+        }
+
+        .input-group .form-control:focus + .icon {
+            color: #f5b53f;
+        }
+
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            width: 30%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(245, 181, 63, 0.3);
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(245, 181, 63, 0.4);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .form-check {
+            margin-top: 10px;
+        }
+        
+        .form-check-input {
+            margin-top: 0.25rem;
+        }
+        
+        .form-check-label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .form-check-label a {
+            color: #b27809;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .form-check-label a:hover {
+            color: #f5b53f;
+            text-decoration: underline;
+        }
+        
+        .form-check-input:checked {
+            background-color: #f5b53f;
+            border-color: #f5b53f;
+        }
+
+        .contact-form-container .row {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Include -->
+    <div id="header-placeholder"></div>
+
+    <!-- Contact Header Section -->
+    <section class="contact-header">
+        <div class="container">
+            <div class="greeting1">Liên Hệ Với Chúng Tôi</div>
+            <h1>Kết Nối & Tư Vấn</h1>
+            <p>Hãy liên hệ với VFX để nhận tư vấn và hỗ trợ chuyên nghiệp. Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng lắng nghe và giải đáp mọi thắc mắc để mang đến cho bạn những giải pháp tối ưu nhất.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="contact-info-card">
+                        <div class="contact-icon-container">
+                            <i class="fas fa-map-marker-alt contact-icon1"></i>
+                        </div>
+                        <h3>Địa Chỉ</h3>
+                        <p>Văn phòng: 135 Pasteur, P. Võ Thị Sáu, Quận 3<br>Thành phố Hồ Chí Minh, Việt Nam</p>
+						<p>Trụ sở: Tầng 2, tòa nhà VOV, số 7 Nguyễn Thị Minh Khai, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh, Việt Nam
+                        <p><small>Giờ làm việc: 8:00 - 17:30 (Thứ Hai - Thứ Sáu)</small></p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="contact-info-card">
+                        <div class="contact-icon-container">
+                            <i class="fas fa-phone-alt contact-icon1"></i>
+                        </div>
+                        <h3>Điện Thoại</h3>
+                        <p>Hotline: <a href="tel:0898898259">0898 898 259</a></p>
+                        <p><small>Chúng tôi luôn sẵn sàng hỗ trợ 24/7</small></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card">
+                        <div class="contact-icon-container">
+                            <i class="fas fa-envelope contact-icon1"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Hỗ trợ: <a href="mailto:sangoivonvietnam@gmail.com">sangoivonvietnam@gmail.com</a></p>
+                        <p><small>Phản hồi trong vòng 24 giờ</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="contact-form-container">
+                        <h2>Gửi Yêu Cầu Tư Vấn</h2>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="fullName" placeholder="Họ và tên" required>
+                                        <i class="fas fa-user icon"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                        <i class="fas fa-envelope icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="tel" class="form-control" id="phone" placeholder="Số điện thoại" required>
+                                        <i class="fas fa-phone-alt icon"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="subject" placeholder="Chủ đề">
+                                        <i class="fas fa-tag icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <textarea class="form-control" id="message" placeholder="Nội dung yêu cầu..." required></textarea>
+                            </div>
+                            <!-- <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="privacyCheck" required>
+                                <label class="form-check-label" for="privacyCheck">
+                                    Tôi đồng ý với <a href="#">chính sách bảo mật</a> của VFX
+                                </label>
+                            </div> -->
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane me-2"></i> Gửi Yêu Cầu
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.301091439478!2d106.70079977480516!3d10.788235689361304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bc1e2aca3%3A0x3bb5b5919f0ff031!2zVk9WIHThuqFpIFRQSENN!5e0!3m2!1sen!2s!4v1747798794121!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component Include -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script>
+        // Load Header and Footer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header component
+        fetch('./components/header1.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                // Add active class to news link
+                    setTimeout(() => {
+                        const newsLink = document.getElementById('Contact-link');
+                        if (newsLink) {
+                            newsLink.classList.add('active');
+                        }
+                    }, 100);
+                });
+
+            // Load Footer
+            fetch('./components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+
+            // Enhanced form interaction
+            const formInputs = document.querySelectorAll('.form-control');
+            
+            formInputs.forEach(input => {
+                // Focus effect for input fields
+                input.addEventListener('focus', function() {
+                    const icon = this.parentElement.querySelector('.icon');
+                    if (icon) {
+                        icon.style.color = '#f5b53f';
+                    }
+                });
+                
+                // Blur effect for input fields
+                input.addEventListener('blur', function() {
+                    const icon = this.parentElement.querySelector('.icon');
+                    if (icon && this.value === '') {
+                        icon.style.color = '#999';
+                    }
+                });
+            });
+
+            // Simple form submission handling
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Animation for button
+                const button = this.querySelector('.submit-btn');
+                button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Đang gửi...';
+                button.disabled = true;
+                
+                // Simulate sending (would be replaced with actual AJAX in production)
+                setTimeout(() => {
+                    alert('Cảm ơn bạn đã gửi yêu cầu! Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.');
+                    this.reset();
+                    button.innerHTML = '<i class="fas fa-paper-plane me-2"></i> Gửi Yêu Cầu';
+                    button.disabled = false;
+                    
+                    // Reset icons
+                    document.querySelectorAll('.icon').forEach(icon => {
+                        icon.style.color = '#999';
+                    });
+                }, 1500);
+            });
+        });
+
+        // Add a custom script after iframe loads to ensure there's a visible marker
+        document.addEventListener('DOMContentLoaded', function() {
+                        // The standard Google Maps embed already has a pin marker by default
+                        // This script is just to ensure users know about the importance of the location
+                        const mapContainer = document.querySelector('.map-container');
+                        const infoOverlay = document.createElement('div');
+                        infoOverlay.innerHTML = '<div style="position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 5px; border-left: 4px solid #f5b53f; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;"><strong>Trụ sở VFX:</strong> Tòa nhà VOV, số 7 Nguyễn Thị Minh Khai, Q.1, TP.HCM</div>';
+                        mapContainer.style.position = 'relative';
+                        mapContainer.appendChild(infoOverlay);
+                    });
+
+    </script>
+</body>
+</html> 

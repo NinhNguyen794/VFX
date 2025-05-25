@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUIT STARTUP 2025 - Tin Tức VFX</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="./img/index/logoVFX.png" type="image/x-icon">
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        /* Header (Reusing styles from News.html for consistency, can be externalized) */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            margin: 0;
+            padding: 10px 0; 
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            margin-left: 16px;
+            border-left: 2px solid #f5b53f;
+            padding-left: 16px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f5b53f;
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #f5b53f;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 25px;
+        }
+
+        .navbar-nav .nav-link {
+            color: black;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-size: 1.0rem;
+            letter-spacing: 0.3px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: black;
+            background-color: rgba(245, 181, 63, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: black;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            font-weight: 600;
+        }
+
+        .account-button {
+            background-color: transparent;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1.5px solid #f5b53f;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.3px;
+            font-size: 0.9rem;
+        }
+
+        .account-button:hover {
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 181, 63, 0.2);
+        }
+
+        .account-button i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        /* Article Styles */
+        .article-header {
+            background: linear-gradient(to right, rgba(244, 213, 80, 0.1), rgba(178, 120, 13, 0.1));
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/index/pattern.png'); /* Assuming pattern.png exists */
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .article-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .article-meta i {
+            margin-right: 5px;
+        }
+
+        .article-content-section {
+            padding: 50px 0;
+        }
+
+        .article-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            line-height: 1.8;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        img.featured-image {
+            max-height: 700px;
+            max-width: 1000px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 30px; /* Space below the image */
+            display: block;      /* For centering */
+            margin-left: auto;   /* For centering */
+            margin-right: auto;  /* For centering */
+            /* max-width: 100%; is handled by img-fluid */
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #444;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .article-content ul {
+            list-style: disc;
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        .article-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .article-content .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .article-content .blockquote {
+            border-left: 4px solid #f5b53f;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .btn-register {
+            display: inline-block;
+            background: linear-gradient(to right, rgba(244, 213, 80, 1), rgba(178, 120, 13, 1));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(242, 201, 76, 0.3);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(242, 201, 76, 0.4);
+        }
+
+        .back-to-news {
+            display: inline-block;
+            margin-top: 40px;
+            color: #b27809;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-to-news i {
+            margin-right: 8px;
+        }
+        .back-to-news:hover {
+            color: #f5b53f;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .article-header h1 {
+                font-size: 2.2rem;
+            }
+            .article-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Include -->
+    <div id="header-placeholder"></div>
+
+    <!-- Article Header Section -->
+    <section class="article-header">
+        <div class="container">
+            <h1>HUIT STARTUP 2025 – Cuộc thi Học sinh – Sinh viên với ý tưởng khởi nghiệp Trường Đại học Công Thương TP.HCM năm 2025</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar-alt"></i> 16/05/2025</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-user"></i> Mary Pham</span>
+                <span class="mx-2">•</span>
+                <span><i class="fas fa-tag"></i> Tin tức - Sự kiện</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content Section -->
+    <section class="article-content-section">
+        <div class="container">
+            <img src="img/index/HUIT STARTUP.jpg" alt="HUIT STARTUP 2025" class="img-fluid rounded featured-image">
+            <div class="article-content">
+                <blockquote class="blockquote">
+                    <p>HUIT STARTUP 2025 – Cuộc thi Học sinh – Sinh viên với ý tưởng khởi nghiệp Trường Đại học Công Thương TP.HCM chính thức quay trở lại mùa thứ 6 với chủ đề:</p>
+                    <p><em>"Đổi mới sáng tạo – Hướng tới kỷ nguyên vươn mình của dân tộc"</em></p>
+                </blockquote>
+
+                <p>– Bạn trẻ Gen Z, Alpha ơi, bạn đã từng có một ý tưởng "táo bạo đến mức không dám kể"?</p>
+                <p>– Bạn có đam mê khởi nghiệp nhưng vẫn đang loay hoay tìm hướng đi?</p>
+                <p>– Bạn muốn biến sáng tạo thành hành động và khát vọng thành giá trị thực?</p>
+                
+                <p>HUIT STARTUP 2025 là nơi bạn có thể:</p>
+                <ul>
+                    <li>– Khai phá tư duy sáng tạo</li>
+                    <li>– Hiện thực hóa ý tưởng thành mô hình kinh doanh khả thi</li>
+                </ul>
+
+                <h2>Thông Tin Chi Tiết Cuộc Thi</h2>
+                
+                <h3>Thời gian tổ chức:</h3>
+                <ul>
+                    <li>Hạn chót đăng ký: <strong>18/05/2025</strong></li>
+                    <li>Vòng loại: 19/05 – 10/06/2025</li>
+                    <li>Vòng bán kết: 13/06 – 26/07/2025</li>
+                    <li>Vòng chung kết: 01/08 – 04/10/2025</li>
+                </ul>
+
+                <h3>Lĩnh vực dự thi đa dạng:</h3>
+                <ol>
+                    <li>Công nghiệp, chế tạo sản phẩm</li>
+                    <li>Y tế, chăm sóc sức khỏe, công nghệ làm đẹp</li>
+                    <li>Nông, lâm, ngư nghiệp</li>
+                    <li>Kinh doanh tạo tác động xã hội</li>
+                    <li>Giáo dục, văn hóa, du lịch</li>
+                    <li>Công nghệ thực phẩm</li>
+                    <li>Dịch vụ tài chính, ngân hàng</li>
+                </ol>
+
+                <h3>Quy mô 2025:</h3>
+                <p>Hơn 30+ Trường Đại học, Cao đẳng, THPT khu vực TP.HCM và các tỉnh lân cận tham gia.</p>
+
+                <h2>Giải Thưởng Hấp Dẫn</h2>
+                <p>Tổng giải thưởng lên đến hơn <span class="highlight">1 TỶ ĐỒNG!</span></p>
+                <ul>
+                    <li>Hơn 114 triệu đồng tiền mặt, cúp – giấy chứng nhận</li>
+                    <li>Gói tiền ươm tạo dự án đổi mới sáng tạo, khởi nghiệp bởi Sở Khoa học và Công nghệ TP.HCM trị giá 40 triệu đồng/dự án</li>
+                    <li>Gói tài trợ tiếp sức khởi nghiệp của doanh nghiệp trị giá 50tr/dự án</li>
+                    <li>Gói học bổng tiếng anh trên 10 triệu đồng/thành viên dự án vào TOP chung kết.</li>
+                    <li>Gói cố vấn chuyên sâu 1:1 trị giá 30 triệu đồng/dự án</li>
+                    <li>Cơ hội gọi vốn, mở rộng mạng lưới và vươn ra sân chơi quốc gia & quốc tế!</li>
+                </ul>
+
+                <div class="blockquote">
+                    <p>Bạn đã sẵn sàng khởi đầu hành trình dám nghĩ – dám làm – dám bứt phá? Hãy nhanh tay đăng ký và biến ý tưởng của bạn thành hiện thực nhé!</p>
+                </div>
+
+                <div class="text-center my-4">
+                    <a href="https://forms.gle/d1F5uCPxpEbPA8hq7" target="_blank" class="btn-register">ĐĂNG KÝ NGAY</a>
+                </div>
+                
+                <p class="text-muted small">VFX, VSI hân hạnh tài trợ và đồng hành cùng cuộc thi. #VFX #VSI #VIDE #Vuonuomkhoinghiepviet</p>
+
+                <div class="text-center">
+                     <a href="News.html" class="back-to-news"><i class="fas fa-arrow-left"></i> Quay lại trang Tin Tức</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component Include -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Load Header and Footer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load Header
+            fetch('./components/header1.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Optional: Add active class to news link if needed on this page
+                    // setTimeout(() => {
+                    //     const newsLink = document.getElementById('news-link');
+                    //     if (newsLink) {
+                    //         newsLink.classList.add('active');
+                    //     }
+                    // }, 100);
+                });
+
+            // Load Footer
+            fetch('./components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html> 
